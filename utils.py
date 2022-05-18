@@ -34,7 +34,7 @@ def validate_hour(time):
     is_valid_length = len(time) == 5
     if not is_valid_length:
         return False
-    # Todo: validate format
+    # Todo: validate format, compare with last parking time
 
 
 def validate_frequent_parking_num(number):
