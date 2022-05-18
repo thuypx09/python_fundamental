@@ -8,7 +8,6 @@ class ParkingHistory:
         self.history_line = kw.get('history_line')
         self.total_payment = kw.get('total_payment')
         self.available_credit = kw.get('available_credit')
-        self.end_time = kw.get('end_time')
 
     def print_history(self):
         try:
