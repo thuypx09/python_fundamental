@@ -1,5 +1,6 @@
 from datetime import datetime
 
+# Todo: convert to dictionary
 QUOTE = {
     7: [[None, 20], [8, 2], [24, 5]],
     1: [[None, 20], [2, 10], [24, 5]],
@@ -23,7 +24,6 @@ class FeeCalculator:
         weekday = datetime(year, month, day).weekday()
         pricing = (QUOTE.get(weekday))
         # Apply discount
-        # Todo: convert to dictionary
         pricing[0][1] *= 0.9
         pricing[1][1] *= 0.9
         pricing[2][1] *= 0.5
