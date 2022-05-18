@@ -1,4 +1,4 @@
-Total Payment: 0.00
-Available Credits: 0.00
+Total Payment: 228.04999999999998
+Available Credits: 1.950000000000017
 Parked Datas:
-2022-05-18 16:17
+2022-05-18 07:17

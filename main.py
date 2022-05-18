@@ -91,7 +91,6 @@ while want_to_use:
 
         history.total_payment = current_total + parking_fee
 
-        end = datetime.now().strftime('%H:%M')
         history.history_line = f' - {calculator.get_parked_hours()}'
         history.append_picking_history()
         history.update_available_credit()
