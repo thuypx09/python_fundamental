@@ -47,8 +47,9 @@ class ParkingHistory:
             history.write(f'{self.history_line}')
 
     def update_available_credit(self):
-        # Todo check file existence
+        # Todo: check file existence
         contents = []
+        # Todo: find a way to open and read file without overwriting original file
         with open(f'parking_history/{self.car_id}.txt', mode='r') as history:
             contents = history.readlines()
 
@@ -79,7 +80,7 @@ class ParkingHistory:
 
     def get_total_payment(self):
         """ Get in the file """
-        # Maybe we don't have to check this since file existence already checked somewhere else
+        # Don't need this check since already checked in main
         file_exists = os.path.exists(f'parking_history/{self.car_id}.txt')
         if not file_exists:
             return 0
@@ -93,9 +94,6 @@ class ParkingHistory:
             contents = history.readlines()
             last_line = contents[-1]
             return last_line.split(' ')[1].strip()
-
-    def get_last_history_line(self):
-        pass
 
     def save_history(self):
         file_exists = os.path.exists(f'parking_history/{self.car_id}.txt')

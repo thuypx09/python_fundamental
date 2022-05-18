@@ -1,7 +1,14 @@
-from parking_quote import quote
 from datetime import datetime
 
-QUOTE = quote
+QUOTE = {
+    7: [[None, 20], [8, 2], [24, 5]],
+    1: [[None, 20], [2, 10], [24, 5]],
+    2: [[None, 20], [2, 10], [24, 5]],
+    3: [[None, 20], [2, 10], [24, 5]],
+    4: [[None, 20], [2, 10], [24, 5]],
+    5: [[None, 20], [2, 10], [24, 5]],
+    6: [[None, 20], [4, 3], [24, 5]]
+}
 
 
 class FeeCalculator:
@@ -21,6 +28,7 @@ class FeeCalculator:
         pricing[2][1] *= 0.5
 
         fee = 0
+
         def get_hour(time):
             return int(time.split(':')[0])
 

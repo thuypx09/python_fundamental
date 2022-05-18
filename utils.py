@@ -12,7 +12,7 @@ def validate_time(time):
 
 
 def validate_car_id(id):
-    # I don't know regex :D
+    # I don't know regex...
     # Validate this pattern 01E-00001
 
     if len(id) != 9:
@@ -26,7 +26,7 @@ def validate_car_id(id):
         fourth = type(int(id.split('-')[1])) == int
     except ValueError as e:
         return False
-
+    # Todo: validate frequent parking number
     return first and second and third and fourth
 
 
