@@ -51,15 +51,12 @@ while want_to_use:
 
         # This code is to simulate when user pickup later (enter pickup time manually)
         while True:
-            try:
-                end = input('Please enter pickup time HH:MM (this is for pickup simulation):\n')
-                end_int = int(end)
-            except ValueError as e:
-                continue
-            last_parking_hour = int(history.get_last_arrival().split(':')[0])
-            if end_int < last_parking_hour or end_int > 24:
+            # Todo: validate input
+            end = input('Please enter pickup time HH:MM (this is for pickup simulation):\n')
+
+            if not utils.is_equal_or_later_time(start, end):
                 print(
-                    f'Your parking time is: {history.get_last_arrival()}\nEnter value from {last_parking_hour} and 24')
+                    f'Your parking time is: {history.get_last_arrival()}\nEnter value from {history.get_last_arrival()} and 23:59')
                 continue
             break
 
@@ -93,8 +90,7 @@ while want_to_use:
 
         history.total_payment = current_total + parking_fee
 
-        end = datetime.now().strftime('%H:%M')
-        history.history_line = f' - {end}'
+        history.history_line = f' - {calculator.get_parked_hours()}'
         history.append_picking_history()
         history.update_available_credit()
         history.update_total_payment()
