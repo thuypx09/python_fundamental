@@ -29,6 +29,7 @@ class ParkingHistory:
                           f'Available Credits: 0.00\n'
                           f'Parked Datas:\n'
                           f'{self.history_line}')
+        return True
 
     def append_parking_history(self):
         """ Append a new parking without end time """
@@ -39,6 +40,7 @@ class ParkingHistory:
 
         with open(f'parking_history/{self.car_id}.txt', mode='a') as history:
             history.write(f'\n{self.history_line}')
+        return True
 
     def append_picking_history(self):
         """ Append a new parking without end time """

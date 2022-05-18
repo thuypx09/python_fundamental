@@ -21,7 +21,7 @@ class FeeCalculator:
 
     def get_fee(self):
         year, month, day = map(int, self.weekday.split('-'))
-        weekday = datetime(year, month, day).weekday()
+        weekday = datetime(year, month, day).isoweekday()
         pricing = (QUOTE.get(weekday))
         # Apply discount
         pricing[0][1] *= 0.9
@@ -36,6 +36,8 @@ class FeeCalculator:
 
         fee = 0
 
+
+        # Em tinh sai gia' roi thay oi, de em xem lai :D
         if start < 8:
             fee += pricing[0][1]
         if end >= 8:
