@@ -95,28 +95,6 @@ class ParkingHistory:
             last_line = contents[-1]
             return last_line.split(' ')[1].strip()
 
-    def save_history(self):
-        file_exists = os.path.exists(f'parking_history/{self.car_id}.txt')
-
-        if not file_exists:
-            with open(f'parking_history/{self.car_id}.txt', mode='w') as history:
-                history.write(f'Total Payment: 0.00'
-                              f'Available Credits: 0.00'
-                              f'Parked Datas:'
-                              f'{self.history_line}')
-            return
-
-        with open(f'parking_history/{self.car_id}.txt', mode='a') as history:
-            contents = history.readlines()
-            last_line = contents[-1]
-            if len(last_line) < 20 and 'Park' not in last_line:  # Make sure that last line does not have ending time
-                self.history_line = 'a'
-
-            history.write(f'Total Payment: {self.available_credit}'
-                          f'Available Credits: {self.available_credit}'
-                          f'Parked Datas:'
-                          f'{self.history_line}')
-
     def check_is_parking(self):
         if not os.path.exists(f'parking_history/{self.car_id}.txt'):
             return False
