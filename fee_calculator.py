@@ -23,17 +23,20 @@ class FeeCalculator:
         weekday = datetime(year, month, day).weekday()
         pricing = (QUOTE.get(weekday))
         # Apply discount
+        # Todo: convert to dictionary
         pricing[0][1] *= 0.9
         pricing[1][1] *= 0.9
         pricing[2][1] *= 0.5
 
-        fee = 0
 
         def get_hour(time):
             return int(time.split(':')[0])
 
         start = get_hour(self.start)
         end = get_hour(self.end)
+
+        fee = 0
+
         if start < 8:
             fee += pricing[0][1]
         if end >= 8:
