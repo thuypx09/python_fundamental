@@ -28,7 +28,6 @@ class FeeCalculator:
         pricing[1][1] *= 0.9
         pricing[2][1] *= 0.5
 
-
         def get_hour(time):
             return int(time.split(':')[0])
 
@@ -50,3 +49,9 @@ class FeeCalculator:
             fee += parked_hours * pricing[2][1]
 
         return fee
+
+    def get_parked_hours(self):
+        duration = str(datetime.strptime(self.end, '%H:%M') - datetime.strptime(self.start, '%H:%M'))
+        if len(duration) == 7:
+            duration = f'0{duration}'
+        return duration[:5]

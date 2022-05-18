@@ -30,5 +30,12 @@ def validate_car_id(id):
     return first and second and third and fourth
 
 
+def validate_hour(time):
+    is_valid_length = len(time) == 5
+    if not is_valid_length:
+        return False
+    # Todo: validate format
+
+
 def validate_frequent_parking_num(number):
     pass
