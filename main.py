@@ -54,14 +54,9 @@ while want_to_use:
             # Todo: validate input
             end = input('Please enter pickup time HH:MM (this is for pickup simulation):\n')
 
-            if not utils.validate_hour(end):
-                print('Invalid time format')
-                continue
-            end_hour = int(end.split(':')[0])
-            last_parking_hour = int(history.get_last_arrival().split(':')[0])
-            if end_hour < last_parking_hour or end_hour > 24:
+            if not utils.is_equal_or_later_time(start, end):
                 print(
-                    f'Your parking time is: {history.get_last_arrival()}\nEnter value from {last_parking_hour} and 23:59')
+                    f'Your parking time is: {history.get_last_arrival()}\nEnter value from {history.get_last_arrival()} and 23:59')
                 continue
             break
 

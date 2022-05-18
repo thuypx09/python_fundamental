@@ -30,11 +30,16 @@ def validate_car_id(id):
     return first and second and third and fourth
 
 
-def validate_hour(time):
-    is_valid_length = len(time) == 5
-    if not is_valid_length:
+def is_equal_or_later_time(start, end):
+    is_valid_length = len(end) == 5
+    if not is_valid_length and ':' not in end:
         return False
-    # Todo: validate format, compare with last parking time
+    start_hour = int(start.split(':')[0])
+    end_hour = int(end.split(':')[0])
+    start_minute = int(start.split(':')[1])
+    end_minute = int(end.split(':')[1])
+
+    return start_hour < end_hour or (start_hour == end_hour and end_minute >= start_minute)
 
 
 def validate_frequent_parking_num(number):

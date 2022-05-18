@@ -68,7 +68,7 @@ class ParkingHistory:
             credit = history.readlines()[1].split(' ')[2]
             if credit == '0.00':
                 return 0
-            return float(credit)
+            return round(float(credit), 2)
 
     def update_total_payment(self):
         # Todo check file existence
@@ -87,7 +87,7 @@ class ParkingHistory:
             return 0
         with open(f'parking_history/{self.car_id}.txt') as history:
             total_payment = history.readlines()[0].split(' ')[2]
-            return float(total_payment)
+            return round(float(total_payment), 2)
 
     def get_last_arrival(self):
         """ Get arrival time of the last history line """
